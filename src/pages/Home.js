@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const res = await axios.get('https://local-event-finder-tarak.onrender.com/api/api/events');
+      const res = await axios.get('/test');
       setEvents(res.data);
     };
     fetchEvents();
