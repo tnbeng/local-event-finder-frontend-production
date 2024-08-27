@@ -12,8 +12,17 @@ const CreateEvent = () => {
     e.preventDefault();
     const newEvent = { title, description, date, location, category };
     try {
-      await axios.post('/api/events', newEvent);
-      alert("Event created successfully");
+    console.log("Start====")
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    console.log("Useinfo===",userInfo)
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${userInfo.token}`, 
+      },
+    };
+    
+    await axios.post('/api/events', newEvent, config);
+    alert("Event creation successfull")
     } catch (error) {
        if(error.response.status===401)
        {

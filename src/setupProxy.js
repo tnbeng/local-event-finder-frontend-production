@@ -4,7 +4,8 @@ module.exports = function(app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'http://localhost:5000',
+            // target: 'http://localhost:8080',
+            target: 'https://local-event-finder-tarak.onrender.com',
             changeOrigin: true,
         })
     );

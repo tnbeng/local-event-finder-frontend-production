@@ -9,6 +9,7 @@ const Register = ({appState}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Name ",name)
       const res = await axios.post('/api/users/register', { name, email, password });
       console.log("Register response ",res)
       localStorage.setItem('userInfo', JSON.stringify(res.data));
